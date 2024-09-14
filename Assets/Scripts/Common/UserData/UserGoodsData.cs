@@ -49,6 +49,8 @@ public class UserGoodsData : IUserData
         {
             PlayerPrefs.SetString("Gem", Gem.ToString());
             PlayerPrefs.SetString("Gold",Gold.ToString());
+            PlayerPrefs.Save();
+
             result = true;
 
             Logger.Log($"Gem : {Gem} Gold : {Gold}");

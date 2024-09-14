@@ -37,6 +37,11 @@ public class TitleManager : MonoBehaviour
             UserDataManager.Instance.SaveUserData();
         }
 
+        ChapterData chapterData1 = DataTableManager.Instance.GetChapterData(10);
+        ChapterData chapterData2 = DataTableManager.Instance.GetChapterData(50);
+
+        return;
+
         StartCoroutine(LoadGameCo());
     }
 
