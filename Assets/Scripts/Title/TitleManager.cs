@@ -37,10 +37,10 @@ public class TitleManager : MonoBehaviour
             UserDataManager.Instance.SaveUserData();
         }
 
-        ChapterData chapterData1 = DataTableManager.Instance.GetChapterData(10);
-        ChapterData chapterData2 = DataTableManager.Instance.GetChapterData(50);
+        //ChapterData chapterData1 = DataTableManager.Instance.GetChapterData(10);
+        //ChapterData chapterData2 = DataTableManager.Instance.GetChapterData(50);
 
-        return;
+        //return;
 
         StartCoroutine(LoadGameCo());
     }
@@ -48,6 +48,14 @@ public class TitleManager : MonoBehaviour
     private IEnumerator LoadGameCo()
     {
         Logger.Log($"{GetType()}::LoadGameCo");
+
+        AudioManager.Instance.PlayBGM(BGM.lobby);
+        yield return new WaitForSeconds(5f);
+        AudioManager.Instance.PauseBGM();
+        yield return new WaitForSeconds(5f);
+        AudioManager.Instance.ResumeBGM();
+        yield return new WaitForSeconds(5f);
+        AudioManager.Instance.StopBGM();
 
         LogoAnim.Play();
         yield return new WaitForSeconds(LogoAnim.clip.length);
